@@ -12,7 +12,7 @@ const Account = function({login, email}) {
 }
 
 Account.prototype.getInfo = function() {
-    console.log(`Ваш логін = ${this.login}\ Ваш емайл ${this.email}`);
+    console.log(`Ваш логін = ${this.login} \ Ваша пошта ${this.email}`);
     
 }
 
@@ -57,12 +57,12 @@ class User {
         this.followers = followers;
     }
     getInfo() {
-        console.log(`User ${this.name} is ${this.age} years old and has ${this.followers} followers)`;
+        console.log(`User ${this.name} is ${this.age} years old and has ${this.followers} followers`);
         
     }
 } 
 
-const mango = new User({
+const Mango = new User({
  name: 'Mango',
  age: 2,
  followers: 20,
@@ -70,7 +70,7 @@ const mango = new User({
 
 mango.getInfo(); // User Mango is 2 years old and has 20 followers
 
-const poly = new User({
+const Poly = new User({
  name: 'Poly',
  age: 3,
  followers: 17,
@@ -100,41 +100,46 @@ poly.getInfo(); // User Poly is 3 years old and has 17 followers
 // removeItem(item) — отримує товар і, якщо він є, видаляє його з поточних
 
 class Storage {
-    constructor({items}) {
+    constructor(items) {
         this.items = items;
     }
 
-    getItem() {
+    getItems() {
         return this.items;
     }
 
     addItem(item) {
-        return this.items.push(item)
+        this.items.push(item);
     }
 
     removeItem(item) {
-        const index = this.items.indexOf(item)
+        const index = this.items.indexOf(item);
         if (index !== -1) {
-            this.items.splice(index, 1)
+            this.items.splice(index, 1);
         }
     }
 }
 
+
 const storage = new Storage([
- 'Нанітоіди',
- 'Пролонгер',
- 'Залізні жупи',
- 'Антигравітатор',
+    'Нанітоіди',
+    'Пролонгер',
+    'Залізні жупи',
+    'Антигравітатор',
 ]);
 
 const items = storage.getItems();
 console.table(items); // [ "Нанітоіди", "Пролонгер", "Залізні жупи", "Антигравітатор" ]
+console.log(items);
+
 
 storage.addItem('Дроїд');
 console.table(storage.items); // [ "Нанітоіди", "Пролонгер", "Залізні жупи", "Антигравітатор", "Дроїд" ]
+console.log(storage.items);
 
 storage.removeItem('Пролонгер');
-// console.table(storage.items); // [ "Нанітоіди", "Залізні жупи", "Антигравітатор", "Дроїд" ]
+console.table(storage.items); // [ "Нанітоіди", "Залізні жупи", "Антигравітатор", "Дроїд" ]
+console.log(storage.items);
 
 
 
@@ -164,6 +169,7 @@ class StringBuilder {
 
     get value() {
         return this._value;
+
     }
 
     append(str) {
