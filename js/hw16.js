@@ -6,31 +6,31 @@
 
 //Напиши функцію-конструктор Account, яка створює об'єкт з властивостями login і email. В prototype функції-конструктора добав метод getInfo(), який виводить в консоль значення полів login і email об'єкта який його викликав.
 
-// const Account = function({login, email}) {
-//     this.login = login;
-//     this.email = email;
-// }
+const Account = function({login, email}) {
+    this.login = login;
+    this.email = email;
+}
 
-// Account.prototype.getInfo = function() {
-//     console.log(`Ваш логін = ${this.login}\ Ваш емайл ${this.email}`);
+Account.prototype.getInfo = function() {
+    console.log(`Ваш логін = ${this.login}\ Ваш емайл ${this.email}`);
     
-// }
+}
 
-// console.log(Account.prototype.getInfo); // function
+console.log(Account.prototype.getInfo); // function
 
-// const mango = new Account({
-//  login: 'Mangozedog',
-//  email: 'mango@dog.woof',
-// });
+const mango = new Account({
+ login: 'Mangozedog',
+ email: 'mango@dog.woof',
+});
 
-// mango.getInfo(); // Login: Mangozedog, Email: mango@dog.woof
+mango.getInfo(); // Login: Mangozedog, Email: mango@dog.woof
 
-// const poly = new Account({
-//  login: 'Poly',
-//  email: 'poly@mail.com',
-// });
+const poly = new Account({
+ login: 'Poly',
+ email: 'poly@mail.com',
+});
 
-// poly.getInfo(); // Login: Poly, Email: poly@mail.com
+poly.getInfo(); // Login: Poly, Email: poly@mail.com
 
 
 //============================================================================================
@@ -50,33 +50,33 @@
 
 //Добав метод getInfo(), який, виводить рядок: User ${ім'я} is ${вік} years old and has ${кількість фоловерів} followers
 
-// class User {
-//     constructor({name, age, followers}) {
-//         this.name = name;
-//         this.age = age;
-//         this.followers = followers;
-//     }
-//     getInfo() {
-//         console.log(`User ${this.name} is ${this.age} years old and has ${this.followers} followers)`;
+class User {
+    constructor({name, age, followers}) {
+        this.name = name;
+        this.age = age;
+        this.followers = followers;
+    }
+    getInfo() {
+        console.log(`User ${this.name} is ${this.age} years old and has ${this.followers} followers)`;
         
-//     }
-// } 
+    }
+} 
 
-// const mango = new User({
-//  name: 'Mango',
-//  age: 2,
-//  followers: 20,
-// });
+const mango = new User({
+ name: 'Mango',
+ age: 2,
+ followers: 20,
+});
 
-// mango.getInfo(); // User Mango is 2 years old and has 20 followers
+mango.getInfo(); // User Mango is 2 years old and has 20 followers
 
-// const poly = new User({
-//  name: 'Poly',
-//  age: 3,
-//  followers: 17,
-// });
+const poly = new User({
+ name: 'Poly',
+ age: 3,
+ followers: 17,
+});
 
-// poly.getInfo(); // User Poly is 3 years old and has 17 followers
+poly.getInfo(); // User Poly is 3 years old and has 17 followers
 
 
 
@@ -99,42 +99,42 @@
 // addItem(item) — отримує новий товар і додає його до поточних
 // removeItem(item) — отримує товар і, якщо він є, видаляє його з поточних
 
-// class Storage {
-//     constructor({items}) {
-//         this.items = items;
-//     }
+class Storage {
+    constructor({items}) {
+        this.items = items;
+    }
 
-//     getItem() {
-//         return this.items;
-//     }
+    getItem() {
+        return this.items;
+    }
 
-//     addItem(item) {
-//         return this.items.push(item)
-//     }
+    addItem(item) {
+        return this.items.push(item)
+    }
 
-//     removeItem(item) {
-//         const index = this.items.indexOf(item)
-//         if (index !== -1) {
-//             this.items.splice(index, 1)
-//         }
-//     }
-// }
+    removeItem(item) {
+        const index = this.items.indexOf(item)
+        if (index !== -1) {
+            this.items.splice(index, 1)
+        }
+    }
+}
 
-// const storage = new Storage([
-//  'Нанітоіди',
-//  'Пролонгер',
-//  'Залізні жупи',
-//  'Антигравітатор',
-// ]);
+const storage = new Storage([
+ 'Нанітоіди',
+ 'Пролонгер',
+ 'Залізні жупи',
+ 'Антигравітатор',
+]);
 
-// const items = storage.getItems();
-// console.table(items); // [ "Нанітоіди", "Пролонгер", "Залізні жупи", "Антигравітатор" ]
+const items = storage.getItems();
+console.table(items); // [ "Нанітоіди", "Пролонгер", "Залізні жупи", "Антигравітатор" ]
 
-// storage.addItem('Дроїд');
-// console.table(storage.items); // [ "Нанітоіди", "Пролонгер", "Залізні жупи", "Антигравітатор", "Дроїд" ]
+storage.addItem('Дроїд');
+console.table(storage.items); // [ "Нанітоіди", "Пролонгер", "Залізні жупи", "Антигравітатор", "Дроїд" ]
 
-// storage.removeItem('Пролонгер');
-// // console.table(storage.items); // [ "Нанітоіди", "Залізні жупи", "Антигравітатор", "Дроїд" ]
+storage.removeItem('Пролонгер');
+// console.table(storage.items); // [ "Нанітоіди", "Залізні жупи", "Антигравітатор", "Дроїд" ]
 
 
 
@@ -157,39 +157,39 @@
 // Метод prepend(str) — отримує параметр str (рядок) і додає його на початок _value
 // Метод pad(str) — отримує параметр str (рядок) і додає його на початок і в кінець _value
 
-// class StringBuilder {
-//     constructor(value) {
-//         this._value = value;
-//     }
+class StringBuilder {
+    constructor(value) {
+        this._value = value;
+    }
 
-//     get value() {
-//         return this._value;
-//     }
+    get value() {
+        return this._value;
+    }
 
-//     append(str) {
-//         return this._value += str;
-//     }
+    append(str) {
+        return this._value += str;
+    }
 
-//     prepend(str) {
-//         return this._value = str + this._value;
-//     }
+    prepend(str) {
+        return this._value = str + this._value;
+    }
 
-//     pad(str) {
-//         return this._value = str + this._value + str;
-//     }
-// }
+    pad(str) {
+        return this._value = str + this._value + str;
+    }
+}
 
 
-// const builder = new StringBuilder('.');
+const builder = new StringBuilder('.');
 
-// builder.append('^');
-// console.log(builder.value); // '.^'
+builder.append('^');
+console.log(builder.value); // '.^'
 
-// builder.prepend('^');
-// console.log(builder.value); // '^.^'
+builder.prepend('^');
+console.log(builder.value); // '^.^'
 
-// builder.pad('=');
-// console.log(builder.value); // '=^.^='
+builder.pad('=');
+console.log(builder.value); // '=^.^='
 
 
 
@@ -226,61 +226,44 @@ static getSpecs(car) {
   * isOn - заведений автомобіль, значення true або false. Спочатку false
   * distance - загальний кілометраж, спочатку 0
   */
- constructor({speed = 0, price, maxSpeed, isOn = false, distance = 0}) {
-    this.speed = speed;
-    this._price = price;
-    this.maxSpeed = maxSpeed;
-    this.isOn = isOn;
-    this.distance = distance;
- }
+     constructor({speed = 0, price, maxSpeed, isOn = false, distance = 0}) {
+        this.speed = speed;
+        this._price = price;
+        this.maxSpeed = maxSpeed;
+        this.isOn = isOn;
+        this.distance = distance;
+    }
 
- /*
-  * Додай геттер і сеттер для властивості price,
-  * який буде працювати з властивістю ціни автомобіля.
-  */
+    /*
+     * Додай геттер і сеттер для властивості price,
+     * який буде працювати з властивістю ціни автомобіля.
+     */ 
 
-get price() {
-    return this._price;
-}
+    get price() {
+        return this._price;
+    }
 
-set price(newPrice) {
-    return this._price = newPrice;
-}
- /*
-  * Додай код для того, щоб завести автомобіль
-  * Записує у властивість isOn значення true
-  */
- turnOn() {
-    return this.isOn = true;
- }
+    set price(newPrice) {
+        return this._price = newPrice;
+    }
 
- /*
-  * Додай код для того, щоб заглушити автомобіль
-  * Записує у властивість isOn значення false,
-  * і скидає поточну швидкість в 0
-  */
- turnOff() {
-    
- }
+    /*
+     * Додай код для того, щоб завести автомобіль
+     * Записує у властивість isOn значення true
+     */
+    turnOn() {
+        return this.isOn = true;
+    }
 
- /*
-  * Додає до властивості speed отримане значення,
-  * за умови, що результуюча швидкість
-  * не більше, ніж значення властивості maxSpeed
-  */
- accelerate(value) {}
+    turnOff() {
+        
+    }
 
- /*
-  * Забирає від властивості speed отримане значення,
-  * за умови, що результуюча швидкість не менше нуля
-  */
- decelerate(value) {}
+    accelerate(value) { }
 
- /*
-  * Додає в поле distance кілометраж (hours * speed),
-  * але тільки в тому випадку, якщо машина заведена!
-  */
- drive(hours) {}
+    decelerate(value) { }
+
+    drive(hours) { }
 }
 
 const mustang = new Car({ maxSpeed: 200, price: 2000 });
